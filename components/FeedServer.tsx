@@ -4,7 +4,7 @@ import PromptCard from "./PromptCard";
 export const FeedServer = async () => {
   const deployedUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
 
-  const res = await fetch(`http://${deployedUrl}/api/prompt`, {
+  const res = await fetch(`${deployedUrl}/api/prompt`, {
     next: {
       revalidate: 10,
     },
