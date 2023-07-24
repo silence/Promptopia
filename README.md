@@ -6,4 +6,4 @@
 
 - [x] Implement Click on tag
 
-- [ ] Implement View other profiles
+- [x] Implement View other profiles
