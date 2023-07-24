@@ -1,4 +1,5 @@
 import Feed from "@components/Feed";
+import { FeedServer } from "@components/FeedServer";
 
 const Home = () => {
   return (
@@ -13,7 +14,9 @@ const Home = () => {
         discover, create and share creative prompts
       </p>
 
-      <Feed />
+      <Feed>
+        <FeedServer />
+      </Feed>
     </section>
   );
 };

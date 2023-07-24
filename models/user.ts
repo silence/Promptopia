@@ -35,6 +35,6 @@ const UserSchema = new Schema({
 
 // If a model named "User" does not exist in the "models" object, the "model" function from Mongoose is called to create a new model.
 // The newly created model is then assigned to the "User" variable.
-const User: Model<UserDocument> = models.User || model("User", UserSchema);
+const User: Model<UserDocument> = models?.User || model("User", UserSchema);
 
 export default User;

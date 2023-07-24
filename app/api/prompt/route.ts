@@ -1,5 +1,6 @@
 // Models
 import Prompt from "@models/prompt";
+import User from "@models/user";
 
 // Utils
 import { connectToDatabase } from "@utils/database";
@@ -9,7 +10,10 @@ export const GET = async () => {
   try {
     await connectToDatabase();
 
-    const prompts = await Prompt.find({}).populate("creator");
+    const prompts = await Prompt.find({}).populate({
+      path: "creator",
+      model: User,
+    });
 
     return NextResponse.json(prompts, { status: 200 });
   } catch (err) {

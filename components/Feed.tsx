@@ -10,10 +10,11 @@ import PromptCard from "./PromptCard";
 // Types
 import { PostWithUser } from "@types";
 
-const Feed = () => {
+const Feed = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState<PostWithUser[]>([]);
+  const [isServerRendered, setIsServerRendered] = useState(true);
   const originalPosts = useRef<PostWithUser[]>([]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +68,12 @@ const Feed = () => {
           />
         ))}
       </div>
+
+      <button onClick={() => setIsServerRendered((prev) => !prev)}>
+        Server render component test
+      </button>
+
+      {isServerRendered && children}
     </section>
   );
 };
