@@ -10,6 +10,9 @@ import PromptCard from "./PromptCard";
 // Types
 import { PostWithUser } from "@types";
 
+export const fetchCache = "force-no-store";
+export const dynamic = "force-dynamic";
+
 const Feed = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
@@ -32,7 +35,9 @@ const Feed = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/prompt");
+      const res = await fetch("/api/prompt", {
+        cache: "no-store",
+      });
       const data = await res.json();
       originalPosts.current = data;
       setPosts(data);

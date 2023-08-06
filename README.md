@@ -15,4 +15,4 @@ in this demo application, I use
   - Static Site Generation (SSG)
   - Incremental Static Generation (ISR)
 
-Feel free to access **Vercel link TBD**
+Feel free to access **https://promptopia-tenderne.vercel.app**

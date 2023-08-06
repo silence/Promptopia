@@ -1,15 +1,16 @@
 import { PostWithUser } from "@types";
 import PromptCard from "./PromptCard";
 
+export const fetchCache = "force-no-store";
+export const dynamic = "force-dynamic";
+
 export const FeedServer = async () => {
   const deployedUrl =
     process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3000";
 
   try {
     const res = await fetch(`${deployedUrl}/api/prompt`, {
-      next: {
-        revalidate: 10,
-      },
+      cache: "no-store",
     });
     const posts: PostWithUser[] = await res.json();
 
